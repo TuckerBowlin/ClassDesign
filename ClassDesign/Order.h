@@ -1,12 +1,12 @@
 #pragma once
-#include "store.h"
+#include "Store.h"
 
 class Order
 {private:
 	Item order[10];
 	int index = 0;
 public:
-	void addItem(Store S, int i) {
+	void addItem(const Store& S, int i)  {
 		order[index] = S.getSItem(i);
 		index++;
 	}

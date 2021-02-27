@@ -22,7 +22,36 @@ public:
 	void processOrder(const Order& order) {
 		
 		for (int i = 0; i <= 9; i++) {
-			order.getItem(i).getID();
+			if (order.getItem(i).getStock() > 0) {
+				for (int j = 0; j <= 99; j++) {
+
+					if (order.getItem(i).getID() == this->getSItem(j).getID()) {
+						if (this->getSItem(j).getStock() >= order.getItem(i).getStock()) {
+							this->StoreA[j].setStock(this->StoreA[j].getStock() - order.getItem(i).getStock());//subtracting stock from item in store
+							order.getItem(i).setStock(0);
+
+
+						}
+						else {
+							std::cout << "there is not enough stock to place that order" << std::endl;
+						}
+					    if (this->StoreA[j].getStock() == 0) {
+							this->StoreA[j].setID(9999);
+							this->StoreA[j].setName("n/a");
+							this->StoreA[j].setPrice(0);
+							this->StoreA[j].setStock(0);
+
+
+						}
+
+
+					}
+
+
+
+				}
+			}
+
 		}
 		
 	}
