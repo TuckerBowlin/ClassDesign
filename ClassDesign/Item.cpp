@@ -11,3 +11,12 @@ Item::Item() {
 	setPrice(0);
 	setStock(0);
 }
+
+std::ostream& operator<<(std::ostream& out, const Item& item)
+{
+	out << "Name: " << item.getName() << std::endl;
+	out << "ID:  " << item.getID() << std::endl;
+	out << "Price: $" << item.getPrice() << std::endl;
+	out << "Stock:  " << item.getStock() << std::endl; 
+	return out;
+}

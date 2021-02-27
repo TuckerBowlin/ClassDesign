@@ -9,10 +9,10 @@ class Item
 	double price = 0000;
 	int stock = 0000;
 public:
-	std::string getName() { return Name; }
-	long getID() { return ID; }
-	double getPrice(){ return price; }
-	int getStock() { return stock; }
+	std::string getName() const { return Name; }
+	long getID() const { return ID; }
+	double getPrice() const{ return price; }
+	int getStock() const{ return stock; }
 
 	void setName(std::string newName) {Name = newName;}
 	void setID(long newID) { ID = newID; }
@@ -23,3 +23,4 @@ public:
 	Item();
 };
 
+std::ostream& operator<<(std::ostream& out, const Item& item);

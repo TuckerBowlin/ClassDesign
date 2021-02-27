@@ -11,29 +11,24 @@ int main() {
 	std::cout << test.getScheme() << std::endl;
 	std::cout << test.getAuthority() << std::endl;
 	std::cout << test.getPath() << std::endl;
+
+	//printURL(test);
+	std::cout << test;
 		
 	MetaCamera Ctest("testFile",".png","05/08/2021",0,"TuckerB",256,256,8,30,600,false);
-	std::cout << "File Name: " << Ctest.getFileName() << std::endl;
-	std::cout << "Image Type: " << Ctest.getImageType() << std::endl;
-	std::cout << "Date Created: " << Ctest.getdateCreated() << std::endl;
-	std::cout << "File Size: " << Ctest.getSize() << std::endl;
-	std::cout << "Author: " << Ctest.getAuthor() << std::endl;
-	std::cout << "Width: " << Ctest.getXDimension() << std::endl;
-	std::cout << "Height: " << Ctest.getYDimension() << std::endl;
-	std::cout << "Apature: " << "f/"<< Ctest.getApertureSize() << std::endl;
-	std::cout << "Exposure Time: " << "1/" << Ctest.getExposureTime() << std::endl;
-	std::cout << "ISO: " << Ctest.getISO() << std::endl;
-	std::cout << "Flash: " << Ctest.getFlash() << std::endl;
-
+	//printImageData(Ctest);
+	std::cout << Ctest;
 	Store Stest;
 
-	Stest.getAllItems();
+	//Stest.getAllItems();
 	
 	Stest.setSItem("red gum", 1121, 15.37, 15, 3);
 	Stest.setSItem("red gum", 1121, 15.37, 15, 5);
 	Stest.setSItem("red gum", 1121, 15.37, 15, 7);
 	Stest.setSItem("red gum", 1121, 15.37, 15, 8);
-	Stest.getAllItems();
+	std::cout << Stest.getSItem(3);
+	std::cout << Stest;
+	//Stest.getAllItems();
 
 	Order order;
 
@@ -41,6 +36,6 @@ int main() {
 	order.addItem(Stest, 5);
 	order.addItem(Stest, 7);
 	order.addItem(Stest, 8);
-	std::cout << order.getTotalPrice() << std::endl;
+	order.getTotalPrice();
 
 }

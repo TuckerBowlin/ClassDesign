@@ -19,17 +19,17 @@ private:
 public:
 	
 
-	std::string getFileName()    {return fileName;}
-	std::string getImageType()   {return imageType;}
-	std::string getdateCreated()    {return dateCreated;}
-	double      getSize()        {return size;}
-	std::string getAuthor()      {return Author;}
-	int         getXDimension()  {return xDimension;}
-	int         getYDimension()  {return yDimension;}
-	int         getApertureSize(){return ApertureSize;}
-	int         getExposureTime(){return exposureTime;}
-	int         getISO()         {return ISO;}
-	bool        getFlash()       {return Flash;}
+	std::string getFileName() const   {return fileName;}
+	std::string getImageType() const   {return imageType;}
+	std::string getdateCreated() const {return dateCreated;}
+	double      getSize() const       {return size;}
+	std::string getAuthor() const     {return Author;}
+	int         getXDimension() const  {return xDimension;}
+	int         getYDimension() const {return yDimension;}
+	int         getApertureSize()const {return ApertureSize;}
+	int         getExposureTime()const {return exposureTime;}
+	int         getISO()  const       {return ISO;}
+	bool        getFlash() const      {return Flash;}
 
 	void setFileName (std::string newFileName) {fileName = newFileName;}
 	void setImageType(std::string newType) {
@@ -53,3 +53,6 @@ public:
 	MetaCamera(std::string, std::string, std::string, double, std::string, int, int, int, int, int, bool);
 };
 
+void printImageData(const MetaCamera& image);
+
+std::ostream& operator<<(std::ostream& out, const MetaCamera& image);

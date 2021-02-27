@@ -10,17 +10,17 @@ private:
 public:
     URLParser(std::string input);
 
-    std::string getURL() {
+    std::string getURL() const {
         return this->URL;
     };
 
-    std::string getScheme() {
+    std::string getScheme() const{
         std::string tempURL = this->URL;
         std::string Scheme = tempURL.substr(0, tempURL.find(":") + 1);
         return Scheme;
     }
 
-    std::string getAuthority() {
+    std::string getAuthority() const {
         std::regex authParser("^//(?:[a-z]+\\.)?(?:.+?)\\.[a-z]{3}");
         std::smatch urlMatch;
 
@@ -32,7 +32,7 @@ public:
         return  urlMatch.str(0);
     }
 
-    std::string getPath() {
+    std::string getPath() const{
         std::regex authParser("^//(?:[a-z]+\\.)?(?:.+?)\\.[a-z]{3}");
         std::smatch urlMatch;
 
@@ -47,3 +47,6 @@ public:
 
 };
 
+void printURL(const URLParser& URL);
+
+std::ostream& operator<<(std::ostream& out, const URLParser& URL);

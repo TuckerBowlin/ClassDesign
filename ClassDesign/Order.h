@@ -10,9 +10,12 @@ public:
 		order[index] = S.getSItem(i);
 		index++;
 	}
-	int getTotalPrice() {
+	Item getItem(int i) const {
+		return this->order[i];
+	}
+	int getTotalPrice()const {
 		int price = 0;
-		for (int i = 0; i <= 10; i++) {
+		for (int i = 0; i <= 9; i++) {
 			price = price + order[i].getPrice();
 		}
 		return price;
